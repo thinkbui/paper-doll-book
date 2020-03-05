@@ -1,24 +1,5 @@
-# README
+# PaperDollBook
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a Rails project is meant to allow you to create and manage virtual books of paper dolls where each page represents a character or set of characters along with layers for outfits and backgrounds/foregrounds to build a scene.  The first stage of this project is just to store and manage the data that can be downloaded as a JSON that can be inserted with other assets into a HTML/JS template for local viewing, but future stages may expand the features of the web app.  So far nothing is complete.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+This was originally conceived as a way to get my friends' kids interested in web programming in JS, but has since turned into my own study of Rails.  This is very much a work in progress, so use at your own risk.
