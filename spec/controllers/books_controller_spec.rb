@@ -6,6 +6,13 @@ RSpec.describe BooksController, type: :controller do
     end
   end
 
+  describe "GET #new" do
+    it "returns a success response" do
+      get :new
+      expect(response).to be_successful
+    end
+  end
+
   describe "GET #show" do
     it "returns a success response" do
       book = Book.new(name:"Test")
@@ -21,6 +28,24 @@ RSpec.describe BooksController, type: :controller do
       book.save!
       get :edit, params: {id: book.id}
       expect(response).to be_successful
+    end
+  end
+
+  describe "POST #create" do
+    before(:each) do
+      @new_name = "Test"
+      @params = {book: {name: @new_name}}
+    end
+
+    it "returns a redirect response" do
+      post :create, params: @params
+      expect(response.status).to eq(302)
+    end
+
+    it "creates a new record" do
+      expect{
+        post :create, params: @params
+      }.to change(Book.all,:count).by(1)
     end
   end
 
@@ -41,6 +66,25 @@ RSpec.describe BooksController, type: :controller do
       put :update, params: @params
       @book.reload
       expect(@book.name).to eq(@new_name)
+    end
+  end
+
+  describe "DELETE #destroy" do
+    before(:each) do
+      @book = Book.new(name: "Text")
+      @book.save!
+      @params = {id: @book.id}
+    end
+
+    it "returns a redirect response" do
+      delete :destroy, params: @params
+      expect(response.status).to eq(302)
+    end
+
+    it "destroys the record" do
+      expect{
+        delete :destroy, params: @params
+      }.to change(Book.all,:count).by(-1)
     end
   end
 end

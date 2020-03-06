@@ -3,3 +3,7 @@
 <%= @book.description %>
 <br />
 <a href="<%= edit_book_path(@book) %>">EDIT</a>
+<br />
+<%= link_to 'DELETE', book_path(@book),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %>
