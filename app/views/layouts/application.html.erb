@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>PaperDollBook</title>
+    <title>Paper Doll Book</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,9 @@
   </head>
 
   <body>
+    <header>
+      <%= link_to "HOME", root_path, class: "btn-special" %>
+    </header>
     <%= yield %>
   </body>
 </html>
