@@ -1,0 +1,27 @@
+<h1>Books</h1>
+<a href="<%= new_book_path() %>" class="btn-special">New Book</a>
+<br />
+<br />
+<table>
+	<thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @books.each do |book| %>
+      <tr>
+        <td>
+          <%= book.name %>
+        </td>
+        <td><%= book.description %></td>
+        <td>
+          <a href="<%= book_path(book) %>" class="btn-default">VIEW</a>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

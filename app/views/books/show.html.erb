@@ -1,0 +1,9 @@
+<h1><%= @book.name %></h1>
+<br />
+<%= @book.description %>
+<br />
+<a href="<%= edit_book_path(@book) %>" class="btn-special">EDIT</a>
+<%= link_to 'DELETE', book_path(@book),
+              method: :delete,
+              data: { confirm: 'Are you sure?' },
+              class: "btn-danger" %>
