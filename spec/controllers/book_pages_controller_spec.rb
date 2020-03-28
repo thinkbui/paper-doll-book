@@ -17,14 +17,16 @@ RSpec.describe BookPagesController, type: :controller do
   #   end
   # end
 
-  # describe "GET #show" do
-  #   it "returns a success response" do
-  #     book = Book.new(name:"Test")
-  #     book.save!
-  #     get :show, params: {id: book.id}
-  #     expect(response).to be_successful
-  #   end
-  # end
+  describe "GET #show" do
+    it "returns a success response" do
+      book = Book.new(name:"Test")
+      book.save!
+      book_page = BookPage.new(name:"Test Page", order: 0, book: book)
+      book_page.save!
+      get :show, params: {id: book_page.id, book_id: book.id}
+      expect(response).to be_successful
+    end
+  end
 
   # describe "GET #edit" do
   #   it "returns a success response" do
