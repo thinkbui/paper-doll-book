@@ -1,5 +1,7 @@
 <h1><%= @book.name %></h1>
 <br />
+<a href="<%= books_path() %>" class="btn-default">Back to BOOKS</a>
+<br />
 <%= @book.description %>
 <br />
 <a href="<%= edit_book_path(@book) %>" class="btn-special">EDIT</a>
