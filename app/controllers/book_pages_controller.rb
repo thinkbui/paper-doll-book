@@ -4,38 +4,47 @@ class BookPagesController < ApplicationController
     @book_pages = @book.book_pages.order(:order)
   end
 
-  # def new
-  #   @book = Book.new
-  # end
-
-  def show
-    @book_page = Book.find(params[:book_id]).book_pages.find(params[:id])
+  def new
+    @book = Book.find(params[:book_id])
+    @book_page = BookPage.new(book: @book)
   end
 
-  # def edit
-  #   @book = Book.find(params[:id])
-  # end
+  def show
+    @book = Book.find(params[:book_id])
+    @book_page = @book.book_pages.find(params[:id])
+  end
 
-  # def create
-  #   book = Book.new
-  #   book.name = params[:book][:name]
-  #   book.description = params[:book][:description]
-  #   book.save!
-  #   book.reload
-  #   redirect_to action: "show", id: book.id
-  # end
+  def edit
+    @book = Book.find(params[:book_id])
+    @book_page = @book.book_pages.find(params[:id])
+  end
 
-  # def update
-  #   @book = Book.find(params[:id])
-  #   @book.name = params[:book][:name]
-  #   @book.description = params[:book][:description]
-  #   @book.save!
-  #   redirect_to action: "show", id: @book.id
-  # end
+  def create
+    book = Book.find(params[:book_id])
+    book_page = BookPage.new
+    book_page.book = book
+    book_page.name = params[:book_page][:name]
+    book_page.order = params[:book_page][:order]
+    book_page.src = params[:book_page][:src]
+    book_page.z_index = params[:book_page][:z_index]
+    book_page.save!
+    book_page.reload
+    redirect_to action: "show", id: book_page.id, book_id: book_page.book_id
+  end
 
-  # def destroy
-  #   @book = Book.find(params[:id])
-  #   @book.destroy!
-  #   redirect_to action: "index"
-  # end
+  def update
+    @book_page = Book.find(params[:book_id]).book_pages.find(params[:id])
+    @book_page.name = params[:book_page][:name]
+    @book_page.order = params[:book_page][:order]
+    @book_page.src = params[:book_page][:src]
+    @book_page.z_index = params[:book_page][:z_index]
+    @book_page.save!
+    redirect_to action: "show", id: @book_page.id, book_id: @book_page.book_id
+  end
+
+  def destroy
+    @book_page = BookPage.find(params[:id])
+    @book_page.destroy!
+    redirect_to action: "index"
+  end
 end

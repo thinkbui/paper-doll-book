@@ -1,6 +1,20 @@
 <h1><%= @book_page.name %></h1>
 <br />
 <dl>
+  <dt>SOURCE</dt>
+  <dd><%= @book_page.src %></dd>
+</dl>
+<dl>
   <dt>ORDER</dt>
   <dd><%= @book_page.order %></dd>
 </dl>
+<dl>
+  <dt>Z-INDEX</dt>
+  <dd><%= @book_page.z_index %></dd>
+</dl>
+<br />
+<a href="<%= edit_book_book_page_path(@book_page, book_id: @book.id) %>" class="btn-special">EDIT</a>
+<%= link_to 'DELETE', book_book_page_path(@book_page, book_id: @book.id),
+              method: :delete,
+              data: { confirm: 'Are you sure?' },
+              class: "btn-danger" %>
