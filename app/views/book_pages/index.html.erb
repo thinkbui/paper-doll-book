@@ -1,0 +1,27 @@
+<h1>Pages for <%= @book.name %></h1>
+<a href="<%= book_path(@book) %>" class="btn-default">Back to <%= @book.name %></a>
+<br />
+<a href="<%= new_book_book_page_path(@book) %>" class="btn-special">New Page</a>
+<br />
+<br />
+<table>
+	<thead>
+    <tr>
+      <th>Name</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @book_pages.each do |page| %>
+      <tr>
+        <td>
+          <%= page.name %>
+        </td>
+        <td>
+          <a href="<%= book_book_page_path(@book, page) %>" class="btn-default">VIEW</a>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

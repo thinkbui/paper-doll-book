@@ -1,0 +1,15 @@
+<%= form_for(@book_page, url: book_book_page_path(@book, @book_page), html: { method: :put }) do |f| %>
+  <%= f.label 'Name' %><br>
+  <%= f.text_field :name %><br>
+
+  <%= f.label 'Source' %><br>
+  <%= f.text_area :src %><br>
+
+  <%= f.label 'Order' %><br>
+  <%= f.text_area :order %><br>
+
+  <%= f.label 'Z-Index' %><br>
+  <%= f.text_area :z_index %><br>
+
+  <%= f.submit "Submit" %>
+<% end %>
