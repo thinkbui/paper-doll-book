@@ -5,4 +5,10 @@ class Layer < ApplicationRecord
 
 	belongs_to :book
 	belongs_to :page, optional: true
+
+  CONTROLS = ['hidden','toggle','select']
+
+  def get_control_name
+    CONTROLS[controls] || CONTROLS[0]
+  end
 end
