@@ -4,5 +4,5 @@ class Layer < ApplicationRecord
 	validates :book_id, :presence => true
 
 	belongs_to :book
-	belongs_to :page
+	belongs_to :page, optional: true
 end

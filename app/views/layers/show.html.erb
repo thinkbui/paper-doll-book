@@ -1,0 +1,22 @@
+<h1><%= @layer.name %></h1>
+<br />
+<a href="<%= book_layers_path(@book) %>" class="btn-default">Back to LAYERS</a>
+<br />
+<dl>
+  <dt>IID</dt>
+  <dd><%= @layer.iid %></dd>
+</dl>
+<dl>
+  <dt>CONTROLS</dt>
+  <dd><%= @layer.controls %></dd>
+</dl>
+<dl>
+  <dt>CURRENT</dt>
+  <dd><%= @layer.current %></dd>
+</dl>
+<br />
+<a href="<%= edit_book_layer_path(@layer, book_id: @book.id) %>" class="btn-special">EDIT</a>
+<%= link_to 'DELETE', book_layer_path(@layer, book_id: @book.id),
+              method: :delete,
+              data: { confirm: 'Are you sure?' },
+              class: "btn-danger" %>
