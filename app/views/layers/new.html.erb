@@ -1,0 +1,23 @@
+<%= form_for(@layer, url: book_layers_path(@layer, book_id: @book.id), html: { method: :post }) do |f| %>
+  <%= f.label 'Name' %><br>
+  <%= f.text_field :name %><br>
+
+  <%= f.label 'IID' %><br>
+  <%= f.text_area :iid %><br>
+
+  <%= f.label 'Page' %><br>
+  <%= f.select :page_id, @book.pages.collect{ |page| [ page.name, page.id ] }, include_blank: true %><br>
+
+  <%= f.label 'Controls' %><br>
+  <%= f.select :controls, Layer::CONTROLS.map.with_index{ |p,i| [ p, i ] } %><br>
+
+  <%= f.label 'Display' %><br>
+  <%= f.check_box :display %><br>
+
+  <%= f.label 'Current' %><br>
+  <%= f.text_area :current %><br>
+
+  <%= f.submit "SUBMIT", :class => 'btn-special' %>
+<% end %>
+<br />
+<a href="<%= book_layers_path(@book) %>" class="btn-default">CANCEL</a>
