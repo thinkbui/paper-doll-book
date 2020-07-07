@@ -5,8 +5,14 @@
   <%= f.label 'IID' %><br>
   <%= f.text_area :iid %><br>
 
+  <%= f.label 'Page' %><br>
+  <%= f.select :page_id, @book.pages.collect{ |page| [ page.name, page.id ] }, include_blank: true %><br>
+
   <%= f.label 'Controls' %><br>
   <%= f.select :controls, Layer::CONTROLS.map.with_index{ |p,i| [ p, i ] } %><br>
+
+  <%= f.label 'Display' %><br>
+  <%= f.check_box :display %><br>
 
   <%= f.label 'Current' %><br>
   <%= f.text_area :current %><br>
