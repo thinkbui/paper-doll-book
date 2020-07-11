@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_07_082417) do
+ActiveRecord::Schema.define(version: 2020_07_11_214537) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 2020_07_07_082417) do
     t.integer "current"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "order"
     t.index ["book_id"], name: "index_layers_on_book_id"
     t.index ["page_id"], name: "index_layers_on_page_id"
   end

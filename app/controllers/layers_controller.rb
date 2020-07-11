@@ -27,6 +27,7 @@ class LayersController < ApplicationController
     layer.controls = params[:layer][:controls]
     layer.display = params[:layer][:display]
     layer.page_id = params[:layer][:page_id]
+    layer.order = params[:layer][:order]
     layer.iid = params[:layer][:iid]
     layer.current = params[:layer][:current]
     layer.save!
@@ -40,6 +41,7 @@ class LayersController < ApplicationController
     @layer.controls = params[:layer][:controls]
     @layer.display = params[:layer][:display]
     @layer.page_id = params[:layer][:page_id]
+    @layer.order = params[:layer][:order]
     @layer.iid = params[:layer][:iid]
     @layer.current = params[:layer][:current]
     @layer.save!
