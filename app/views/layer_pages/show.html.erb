@@ -1,0 +1,22 @@
+<h1><%= @layer_page.name %></h1>
+<br />
+<a href="<%= book_layer_layer_pages_path(@book) %>" class="btn-default">Back to PAGES</a>
+<br />
+<dl>
+  <dt>SOURCE</dt>
+  <dd><%= @layer_page.src %></dd>
+</dl>
+<dl>
+  <dt>ORDER</dt>
+  <dd><%= @layer_page.order %></dd>
+</dl>
+<dl>
+  <dt>Z-INDEX</dt>
+  <dd><%= @layer_page.z_index %></dd>
+</dl>
+<br />
+<a href="<%= edit_book_layer_layer_page_path(@layer_page, book_id: @book.id, layer_id: @layer.id) %>" class="btn-special">EDIT</a>
+<%= link_to 'DELETE', book_layer_layer_page_path(@layer_page, book_id: @book.id, layer_id: @layer.id),
+              method: :delete,
+              data: { confirm: 'Are you sure?' },
+              class: "btn-danger" %>
