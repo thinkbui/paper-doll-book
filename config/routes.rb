@@ -3,7 +3,12 @@ Rails.application.routes.draw do
   root "books#index"
 
   resources :books do
+
     resources :book_pages
-    resources :layers
+
+    resources :layers do
+      resources :layer_pages
+    end
+
   end
 end

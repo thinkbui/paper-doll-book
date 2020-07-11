@@ -1,0 +1,27 @@
+<h1>Pages for <%= @book.name %></h1>
+<a href="<%= book_layer_path(@book, @layer) %>" class="btn-default">Back to <%= @layer.name %></a>
+<br />
+<a href="<%= new_book_layer_layer_page_path(@book, @layer) %>" class="btn-special">New Page</a>
+<br />
+<br />
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @layer_pages.each do |page| %>
+      <tr>
+        <td>
+          <%= page.name %>
+        </td>
+        <td>
+          <a href="<%= book_layer_layer_page_path(@book, @layer, page) %>" class="btn-default">VIEW</a>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_06_040318) do
+ActiveRecord::Schema.define(version: 2020_07_07_082417) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,10 +43,15 @@ ActiveRecord::Schema.define(version: 2020_07_06_040318) do
     t.string "name", null: false
     t.text "src"
     t.integer "z_index"
+    t.bigint "layer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["book_id"], name: "index_pages_on_book_id"
+    t.index ["layer_id"], name: "index_pages_on_layer_id"
   end
 
   add_foreign_key "layers", "books"
   add_foreign_key "layers", "pages"
   add_foreign_key "pages", "books"
+  add_foreign_key "pages", "layers"
 end
