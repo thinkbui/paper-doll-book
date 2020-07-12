@@ -4,4 +4,8 @@ class Book < ApplicationRecord
 	has_many :pages
 	has_many :book_pages
 	has_many :layers
+
+  def book_pages_serialized_as_json
+    BookPage.serialized_as_json(book_pages)
+  end
 end
