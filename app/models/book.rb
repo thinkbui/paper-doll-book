@@ -8,4 +8,8 @@ class Book < ApplicationRecord
   def book_pages_serialized_as_json
     BookPage.serialized_as_json(book_pages)
   end
+
+  def layers_serialized_as_json
+    Layer.serialized_as_json(layers)
+  end
 end
