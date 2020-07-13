@@ -6,6 +6,6 @@ class BookPage < Page
   has_many :layers, foreign_key: "page_id"
 
   def self.serialized_as_json(book_pages)
-    ActiveModel::SerializableResource.new(book_pages, each_serializer:BookPageSerializer).as_json
+    ActiveModelSerializers::SerializableResource.new(book_pages, each_serializer:BookPageSerializer).as_json
   end
 end
