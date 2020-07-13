@@ -19,7 +19,7 @@
 <textarea readonly wrap="hard" rows="100" style="width:100%;">
 var current = 0;
 
-var pages = <%= JSON.pretty_generate(@book.book_pages_serialized_as_json) %>;
+var pages = <%= @book.book_pages_serialized_as_json %>;
 
-var layers = <%= JSON.pretty_generate(@book.layers_serialized_as_json) %>;
+var layers = <%= @book.layers_serialized_as_json %>;
 </textarea>

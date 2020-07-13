@@ -6,10 +6,10 @@ class Book < ApplicationRecord
 	has_many :layers
 
   def book_pages_serialized_as_json
-    BookPage.serialized_as_json(book_pages.order(:order))
+    JSON.pretty_generate(BookPage.serialized_as_json(book_pages.order(:order)))
   end
 
   def layers_serialized_as_json
-    Layer.serialized_as_json(layers.order(:iid))
+    JSON.pretty_generate(Layer.serialized_as_json(layers.order(:iid)))
   end
 end
