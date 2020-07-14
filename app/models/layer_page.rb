@@ -12,4 +12,12 @@ class LayerPage < Page
   def layers
     book.layers.where("page_id = ?", self.id)
   end
+
+  def list_select_name
+    "#{layer.iid} (#{layer.name}) #{layer.order} (#{name})"
+  end
+
+  def list_select_sorting_order
+    [type, layer.iid, order]
+  end
 end
