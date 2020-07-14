@@ -9,6 +9,10 @@ class Layer < ApplicationRecord
 
   CONTROLS = ['hidden','toggle','select']
 
+  def self.serialized_as_json(layers)
+    layers.map{ |layer| [layer.iid, LayerSerializer.new(layer).as_json]}.to_h
+  end
+
   def get_control_name
     CONTROLS[controls] || CONTROLS[0]
   end

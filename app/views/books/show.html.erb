@@ -13,3 +13,13 @@
 <a href="<%= book_book_pages_path(@book) %>" class="btn-default">PAGES</a>
 <br />
 <a href="<%= book_layers_path(@book) %>" class="btn-default">LAYERS</a>
+<hr />
+<b>JS Output:</b>
+<br />
+<textarea readonly wrap="hard" rows="100" style="width:100%;">
+var current = 0;
+
+var pages = <%= @book.book_pages_serialized_as_json %>;
+
+var layers = <%= @book.layers_serialized_as_json %>;
+</textarea>
