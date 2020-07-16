@@ -6,7 +6,7 @@
   <%= f.text_area :iid %><br>
 
   <%= f.label 'Page' %><br>
-  <%= f.select :page_id, @book.pages.collect{ |page| [ page.name, page.id ] }, include_blank: true %><br>
+  <%= f.select :page_id, @book.pages_list_select_sorted.collect{ |page| [ page.list_select_name, page.id ] }, include_blank: true %><br>
 
   <%= f.label 'Order' %><br>
   <%= f.text_area :order %><br>
