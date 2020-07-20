@@ -4,6 +4,10 @@ Rails.application.routes.draw do
 
   resources :books do
 
+    member do
+      get 'page_contents'
+    end
+
     resources :book_pages
 
     resources :layers do

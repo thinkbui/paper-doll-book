@@ -1,4 +1,6 @@
 class BooksController < ApplicationController
+  protect_from_forgery except: :page_contents
+
   def index
     @books = Book.all
   end
@@ -8,6 +10,10 @@ class BooksController < ApplicationController
   end
 
   def show
+    @book = Book.find(params[:id])
+  end
+
+  def page_contents
     @book = Book.find(params[:id])
   end
 
