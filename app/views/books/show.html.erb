@@ -15,11 +15,13 @@
 <a href="<%= book_layers_path(@book) %>" class="btn-default">LAYERS</a>
 <hr />
 <b>JS Output:</b>
+&nbsp;&nbsp;
+<a href="<%= page_contents_book_path(@book, format: :js) %>" class="btn-default">DOWNLOAD LINK</a>
 <br />
 <textarea readonly wrap="hard" rows="100" style="width:100%;">
 var current = 0;
 
-var pages = <%= @book.book_pages_serialized_as_json %>;
+var pages = <%= @book.book_pages_serialized_as_json.html_safe %>;
 
-var layers = <%= @book.layers_serialized_as_json %>;
+var layers = <%= @book.layers_serialized_as_json.html_safe %>;
 </textarea>
