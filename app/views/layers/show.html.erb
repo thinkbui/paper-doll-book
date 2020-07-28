@@ -10,11 +10,7 @@
   <dt>PAGE</dt>
   <dd>
     <% if @layer.page.present? %>
-      <% if @layer.page.type == "BookPage" %>
-        <a href="<%= book_book_page_path(@book,@layer.page) %>" class="btn-default"><%= @layer.page.name %></a>
-      <% else %>
-        <a href="<%= book_layer_layer_page_path(@book,@layer.page.layer,@layer.page) %>" class="btn-default"><%= @layer.page.name %></a>
-      <% end %>
+      <a href="<%= @page_url %>" class="btn-default"><%= @layer.page.name %></a>
     <% else %>
       (none)
     <% end %>

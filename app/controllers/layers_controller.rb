@@ -12,6 +12,7 @@ class LayersController < ApplicationController
   def show
     @book = Book.find(params[:book_id])
     @layer = @book.layers.find(params[:id])
+    @page_url = layer_parent_page_url
   end
 
   def edit
@@ -52,5 +53,17 @@ class LayersController < ApplicationController
     @layer = Layer.find(params[:id])
     @layer.destroy!
     redirect_to action: "index"
+  end
+
+private
+
+  def layer_parent_page_url
+    if @layer.page.nil?
+      return nil
+    elsif @layer.page.type == "BookPage"
+      book_book_page_path(@book,@layer.page)
+    else
+      book_layer_layer_page_path(@book,@layer.page.layer,@layer.page)
+    end
   end
 end
