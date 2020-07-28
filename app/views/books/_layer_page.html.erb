@@ -1,0 +1,10 @@
+<li>
+  <a href="<%= book_layer_layer_page_path(book, layer, layer_page) %>" class="btn btn-info">
+    <%= layer_page.name %>
+  </a>
+  <ol>
+    <% layer_page.layers.order(:order).each do |layer| %>
+      <%= render partial: "layer", object: layer, locals: {book: book} %>
+    <% end %>
+  </ol>
+</li>
