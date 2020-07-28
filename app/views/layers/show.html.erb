@@ -37,6 +37,6 @@
 <%= link_to 'DELETE', book_layer_path(@layer, book_id: @book.id),
               method: :delete,
               data: { confirm: 'Are you sure?' },
-              class: "btn-danger" %>
+              class: "btn btn-danger" %>
 <br />
 <a href="<%= book_layer_layer_pages_path(@book,@layer) %>" class="btn-default">LAYER PAGES</a>
