@@ -1,6 +1,6 @@
 <h1><%= @layer.name %></h1>
 <br />
-<a href="<%= book_layers_path(@book) %>" class="btn-default">Back to LAYERS</a>
+<a href="<%= book_layers_path(@book) %>" class="btn btn-info">Back to LAYERS</a>
 <br />
 <dl>
   <dt>IID</dt>
@@ -10,7 +10,7 @@
   <dt>PAGE</dt>
   <dd>
     <% if @layer.page.present? %>
-      <a href="<%= @page_url %>" class="btn-default"><%= @layer.page.name %></a>
+      <a href="<%= @page_url %>" class="btn btn-info"><%= @layer.page.name %></a>
     <% else %>
       (none)
     <% end %>
@@ -33,10 +33,10 @@
   <dd><%= @layer.current %></dd>
 </dl>
 <br />
-<a href="<%= edit_book_layer_path(@layer, book_id: @book.id) %>" class="btn-special">EDIT</a>
+<a href="<%= edit_book_layer_path(@layer, book_id: @book.id) %>" class="btn btn-secondary">EDIT</a>
 <%= link_to 'DELETE', book_layer_path(@layer, book_id: @book.id),
               method: :delete,
               data: { confirm: 'Are you sure?' },
-              class: "btn-danger" %>
+              class: "btn btn-danger" %>
 <br />
-<a href="<%= book_layer_layer_pages_path(@book,@layer) %>" class="btn-default">LAYER PAGES</a>
+<a href="<%= book_layer_layer_pages_path(@book,@layer) %>" class="btn btn-info">LAYER PAGES</a>

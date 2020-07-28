@@ -1,7 +1,7 @@
 <h1>Layers for <%= @book.name %></h1>
-<a href="<%= book_path(@book) %>" class="btn-default">Back to <%= @book.name %></a>
+<a href="<%= book_path(@book) %>" class="btn btn-info">Back to <%= @book.name %></a>
 <br />
-<a href="<%= new_book_layer_path(@book) %>" class="btn-special">New Layer</a>
+<a href="<%= new_book_layer_path(@book) %>" class="btn btn-secondary">New Layer</a>
 <br />
 <br />
 <table>
@@ -23,7 +23,7 @@
           <%= layer.name %>
         </td>
         <td>
-          <a href="<%= book_layer_path(@book, layer) %>" class="btn-default">VIEW</a>
+          <a href="<%= book_layer_path(@book, layer) %>" class="btn btn-info">VIEW</a>
         </td>
       </tr>
     <% end %>
