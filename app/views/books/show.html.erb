@@ -1,6 +1,6 @@
 <h1><%= @book.name %></h1>
 <br />
-<a href="<%= books_path() %>" class="btn-default">Back to BOOKS</a>
+<a href="<%= books_path() %>" class="btn btn-info">Back to BOOKS</a>
 <br />
 <%= @book.description %>
 <br />
@@ -10,9 +10,9 @@
               data: { confirm: 'Are you sure?' },
               class: "btn btn-danger" %>
 <br />
-<a href="<%= book_book_pages_path(@book) %>" class="btn-default">PAGES</a>
+<a href="<%= book_book_pages_path(@book) %>" class="btn btn-info">PAGES</a>
 <br />
-<a href="<%= book_layers_path(@book) %>" class="btn-default">LAYERS</a>
+<a href="<%= book_layers_path(@book) %>" class="btn btn-info">LAYERS</a>
 <hr />
 <ul class="nav nav-tabs" id="myTab" role="tablist">
   <li class="nav-item waves-effect waves-light">
@@ -40,7 +40,7 @@
     </ol>
   </div>
   <div class="tab-pane fade" id="output" role="tabpanel" aria-labelledby="output-tab">
-    <a href="<%= page_contents_book_path(@book, format: :js) %>" class="btn-default">DOWNLOAD LINK</a>
+    <a href="<%= page_contents_book_path(@book, format: :js) %>" class="btn btn-info">DOWNLOAD LINK</a>
     <br />
     <textarea readonly wrap="hard" rows="100" style="width:100%;">
     var current = 0;
