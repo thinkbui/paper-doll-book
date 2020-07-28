@@ -7,7 +7,7 @@
   <dd><%= @book_page.order %></dd>
 </dl>
 <br />
-<a href="<%= edit_book_book_page_path(@book_page, book_id: @book.id) %>" class="btn-special">EDIT</a>
+<a href="<%= edit_book_book_page_path(@book_page, book_id: @book.id) %>" class="btn btn-secondary">EDIT</a>
 <%= link_to 'DELETE', book_book_page_path(@book_page, book_id: @book.id),
               method: :delete,
               data: { confirm: 'Are you sure?' },
