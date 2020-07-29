@@ -7,6 +7,8 @@ class Layer < ApplicationRecord
   belongs_to :page, optional: true
   has_many :layer_pages
 
+  default_scope { order(order: :asc) }
+
   CONTROLS = ['hidden','toggle','select']
 
   def self.serialized_as_json(layers)

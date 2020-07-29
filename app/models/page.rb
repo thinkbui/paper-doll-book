@@ -4,6 +4,8 @@ class Page < ApplicationRecord
 
   belongs_to :book
 
+  default_scope { order(order: :asc) }
+
   def list_select_name
     name
   end
