@@ -1,7 +1,7 @@
 class BookPagesController < ApplicationController
   def index
     @book = Book.find(params[:book_id])
-    @book_pages = @book.book_pages.order(:order)
+    @book_pages = @book.book_pages
   end
 
   def new

@@ -2,7 +2,7 @@ class LayerPagesController < ApplicationController
   def index
     @book = Book.find(params[:book_id])
     @layer = @book.layers.find(params[:layer_id])
-    @layer_pages = @layer.layer_pages.order(:order)
+    @layer_pages = @layer.layer_pages
   end
 
   def new

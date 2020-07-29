@@ -3,7 +3,7 @@
     <%= layer_page.name %>
   </a>
   <ol>
-    <% layer_page.layers.order(:order).each do |layer| %>
+    <% layer_page.layers.each do |layer| %>
       <%= render partial: "layer", object: layer, locals: {book: book} %>
     <% end %>
   </ol>
