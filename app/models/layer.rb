@@ -8,6 +8,7 @@ class Layer < ApplicationRecord
   has_many :layer_pages
 
   default_scope { order(order: :asc) }
+  scope :ordered_by_iid, -> { reorder(iid: :asc) }
 
   CONTROLS = ['hidden','toggle','select']
 
