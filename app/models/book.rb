@@ -10,7 +10,7 @@ class Book < ApplicationRecord
   end
 
   def layers_serialized_as_json
-    JSON.pretty_generate(Layer.serialized_as_json(layers.order(:iid)))
+    JSON.pretty_generate(Layer.serialized_as_json(layers.ordered_by_iid))
   end
 
   def pages_list_select_sorted
