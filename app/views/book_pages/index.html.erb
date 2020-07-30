@@ -24,6 +24,11 @@
         </td>
         <td>
           <a href="<%= book_book_page_path(@book, page) %>" class="btn btn-info">VIEW</a>
+          <a href="<%= edit_book_book_page_path(page, book_id: @book.id) %>" class="btn btn-secondary">EDIT</a>
+          <%= link_to 'DELETE', book_book_page_path(page, book_id: @book.id),
+                        method: :delete,
+                        data: { confirm: 'Are you sure?' },
+                        class: "btn btn-danger" %>
         </td>
       </tr>
     <% end %>
