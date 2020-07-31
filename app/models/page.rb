@@ -13,4 +13,8 @@ class Page < ApplicationRecord
   def list_select_sorting_order
     [type, nil, order]
   end
+
+  def url
+    nil
+  end
 end

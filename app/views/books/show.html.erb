@@ -1,22 +1,26 @@
+<a href="<%= books_path() %>" class="btn btn-info">&larr; Back to BOOKS</a>
 <h1><%= @book.name %></h1>
-<br />
-<a href="<%= books_path() %>" class="btn btn-info">Back to BOOKS</a>
-<br />
-<%= @book.description %>
-<br />
-<a href="<%= edit_book_path(@book) %>" class="btn btn-secondary">EDIT</a>
 <%= link_to 'DELETE', book_path(@book),
               method: :delete,
               data: { confirm: 'Are you sure?' },
-              class: "btn btn-danger" %>
-<br />
-<a href="<%= book_book_pages_path(@book) %>" class="btn btn-info">PAGES</a>
-<br />
-<a href="<%= book_layers_path(@book) %>" class="btn btn-info">LAYERS</a>
-<hr />
+              class: "btn btn-danger float-right" %>
+<a href="<%= edit_book_path(@book) %>" class="btn btn-secondary float-right">EDIT</a>
+<table class="table table-striped table-bordered">
+  <tr>
+    <th class="fit text-right">DESCRIPTION</th>
+    <td><%= @book.description %></td>
+  </tr>
+  <tr>
+    <th class="fit text-right">CHILDREN</th>
+    <td>
+      <a href="<%= book_book_pages_path(@book) %>" class="btn btn-info">PAGES</a>
+      <a href="<%= book_layers_path(@book) %>" class="btn btn-info">LAYERS</a>
+    </td>
+  </tr>
+</table>
 <ul class="nav nav-tabs" id="myTab" role="tablist">
   <li class="nav-item waves-effect waves-light">
-    <a class="nav-link" id="contents-tab" data-toggle="tab" href="#contents" role="tab" aria-controls="contents" aria-selected="false">Contents</a>
+    <a class="nav-link active" id="contents-tab" data-toggle="tab" href="#contents" role="tab" aria-controls="contents" aria-selected="false">Contents</a>
   </li>
   <li class="nav-item waves-effect waves-light">
     <a class="nav-link" id="output-tab" data-toggle="tab" href="#output" role="tab" aria-controls="output" aria-selected="true">JS Output</a>
@@ -41,7 +45,6 @@
   </div>
   <div class="tab-pane fade" id="output" role="tabpanel" aria-labelledby="output-tab">
     <a href="<%= page_contents_book_path(@book, format: :js) %>" class="btn btn-info">DOWNLOAD LINK</a>
-    <br />
     <textarea readonly wrap="hard" rows="100" style="width:100%;">
     var current = 0;
 
