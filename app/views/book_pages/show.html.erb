@@ -1,14 +1,17 @@
+<a href="<%= book_book_pages_path(@book) %>" class="btn btn-info">&larr; Back to PAGES</a>
 <h1><%= @book_page.name %></h1>
-<br />
-<a href="<%= book_book_pages_path(@book) %>" class="btn btn-info">Back to PAGES</a>
-<br />
+<%= link_to 'DELETE', book_book_page_path(@book_page, book_id: @book.id),
+              method: :delete,
+              data: { confirm: 'Are you sure?' },
+              class: "btn btn-danger float-right" %>
+<a href="<%= edit_book_book_page_path(@book_page, book_id: @book.id) %>" class="btn btn-secondary float-right">EDIT</a>
 <table class="table table-striped table-bordered">
   <tr>
-    <th class="fit text-right">ORDER:</th>
+    <th class="fit text-right">ORDER</th>
     <td><%= @book_page.order %></td>
   </tr>
   <tr>
-    <th class="fit text-right">LAYERS:</th>
+    <th class="fit text-right">LAYERS</th>
     <td>
       <% @book_page.layers.each do |layer| %>
         <a href="<%= book_layer_path(@book, layer) %>" class="btn btn-info"><%= layer.name %></a>
@@ -16,9 +19,3 @@
     </td>
   </tr>
 </table>
-<br />
-<a href="<%= edit_book_book_page_path(@book_page, book_id: @book.id) %>" class="btn btn-secondary">EDIT</a>
-<%= link_to 'DELETE', book_book_page_path(@book_page, book_id: @book.id),
-              method: :delete,
-              data: { confirm: 'Are you sure?' },
-              class: "btn btn-danger" %>
