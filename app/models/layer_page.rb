@@ -20,4 +20,8 @@ class LayerPage < Page
   def list_select_sorting_order
     [type, layer.iid, order]
   end
+
+  def url
+    Rails.application.routes.url_helpers.book_layer_layer_page_path(book,layer,self)
+  end
 end
