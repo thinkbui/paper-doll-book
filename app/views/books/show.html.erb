@@ -23,6 +23,9 @@
     <a class="nav-link active" id="contents-tab" data-toggle="tab" href="#contents" role="tab" aria-controls="contents" aria-selected="false">Contents</a>
   </li>
   <li class="nav-item waves-effect waves-light">
+    <a class="nav-link" id="unused-layers-tab" data-toggle="tab" href="#unused-layers" role="tab" aria-controls="unused-layers" aria-selected="false">Unused Layers</a>
+  </li>
+  <li class="nav-item waves-effect waves-light">
     <a class="nav-link" id="output-tab" data-toggle="tab" href="#output" role="tab" aria-controls="output" aria-selected="true">JS Output</a>
   </li>
 </ul>
@@ -33,6 +36,15 @@
         <%= render partial: "page", object: page, locals: {book: @book} %>
       <% end %>
     </ol>
+  </div>
+  <div class="tab-pane fade" id="unused-layers" role="tabpanel" aria-labelledby="unused-layers-tab">
+    <ul>
+      <% @book.layers.unused.each do |layer| %>
+          <a href="<%= book_layer_path(@book, layer) %>" class="btn btn-info">
+            <%= layer.name %>
+          </a>
+      <% end %>
+    </ul>
   </div>
   <div class="tab-pane fade" id="output" role="tabpanel" aria-labelledby="output-tab">
     <a href="<%= page_contents_book_path(@book, format: :js) %>" class="btn btn-info">DOWNLOAD LINK</a>

@@ -9,6 +9,7 @@ class Layer < ApplicationRecord
 
   default_scope { order(order: :asc) }
   scope :ordered_by_iid, -> { reorder(iid: :asc) }
+  scope :unused, -> { where(page_id: nil) }
 
   CONTROLS = ['hidden','toggle','select']
 
