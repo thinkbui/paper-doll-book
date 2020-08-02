@@ -30,16 +30,7 @@
   <div class="tab-pane fade active show" id="contents" role="tabpanel" aria-labelledby="contents-tab">
     <ol>
       <% @book.book_pages.each do |page| %>
-        <li>
-          <a href="<%= book_book_page_path(@book, page) %>" class="btn btn-info">
-            <%= page.name %>
-          </a>
-          <ol>
-            <% page.layers.each do |layer| %>
-              <%= render partial: "layer", object: layer, locals: {book: @book} %>
-            <% end %>
-          </ol>
-        </li>
+        <%= render partial: "page", object: page, locals: {book: @book} %>
       <% end %>
     </ol>
   </div>
