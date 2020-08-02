@@ -1,0 +1,5 @@
+var current = 0;
+
+var pages = <%= @book.book_pages_serialized_as_json.html_safe %>;
+
+var layers = <%= @book.layers_serialized_as_json.html_safe %>;
